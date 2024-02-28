@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:musiclingo/screens/register.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -11,7 +12,8 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.75,
+                padding: const EdgeInsets.only(bottom: 40),
+                // height: MediaQuery.of(context).size.height * 0.75,
                 width: double.infinity,
                 decoration: BoxDecoration(
                     borderRadius: const BorderRadius.only(
@@ -97,48 +99,45 @@ class LoginScreen extends StatelessWidget {
                                   EdgeInsets.fromLTRB(12.0, 12.0, 12.0, 12.0),
                             )),
                       ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            InkWell(
-                              onTap: () {},
-                              child: RichText(
-                                text: const TextSpan(
-                                    text: 'Forgot password',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
-                                    children: <InlineSpan>[
-                                      WidgetSpan(
-                                        alignment: PlaceholderAlignment.middle,
-                                        child: Icon(Icons.chevron_right),
-                                      )
-                                    ]),
-                              ),
+
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 24, vertical: 15),
+                        child: InkWell(
+                          onTap: () {},
+                          child: RichText(
+                            text: const TextSpan(
+                              text: 'Forgot password ?',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(
-                              height: 35,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.deepPurple,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5.0),
-                                  ),
-                                ),
-                                onPressed: () {},
-                                child: const Text('Login'),
-                              ),
-                            )
-                          ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: double.infinity,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            // color: Colors.deepPurple,
+                            borderRadius: BorderRadius.circular(50)),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                              minimumSize: const Size(200, 45),
+                              backgroundColor:
+                                  Theme.of(context).colorScheme.onPrimary),
+                          onPressed: () {},
+                          child: const Text(
+                            'Login',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
                       ),
                       const SizedBox(
-                        height: 80,
+                        height: 50,
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -237,9 +236,15 @@ class LoginScreen extends StatelessWidget {
                         height: 5,
                       ),
                       GestureDetector(
-                        child: const Text(
-                          'Sign Up Here',
-                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const Registration()));
+                          },
+                          child: const Text(
+                            'Sign Up Here',
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          ),
                         ),
                       ),
                     ],
