@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:musiclingo/widgets/circled_image_card.dart';
 import 'package:musiclingo/widgets/container_background.dart';
-import 'package:musiclingo/widgets/custom_card.dart';
-import 'package:musiclingo/widgets/home/headings.dart';
 import 'package:musiclingo/widgets/home/recommended_album.dart';
 import 'package:musiclingo/widgets/home/recommended_artist.dart';
 import 'package:musiclingo/widgets/home/recommended_songs.dart';
@@ -18,8 +15,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  void _viewAllSongs() async {}
-  void _viewAllArtist() async {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
