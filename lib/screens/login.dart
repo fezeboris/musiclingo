@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:musiclingo/screens/home_page.dart';
 import 'package:musiclingo/screens/register.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -127,7 +128,10 @@ class LoginScreen extends StatelessWidget {
                               minimumSize: const Size(200, 45),
                               backgroundColor:
                                   Theme.of(context).colorScheme.onPrimary),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => const HomePage()));
+                          },
                           child: const Text(
                             'Login',
                             style: TextStyle(

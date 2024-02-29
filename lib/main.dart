@@ -7,7 +7,7 @@ final theme = ThemeData(
     seedColor: const Color.fromARGB(255, 103, 58, 183),
     brightness: Brightness.dark,
   ),
-  textTheme: GoogleFonts.latoTextTheme(),
+  textTheme: GoogleFonts.nunitoTextTheme(),
 );
 
 void main() {
