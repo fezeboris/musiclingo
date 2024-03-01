@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:musiclingo/widgets/bottom_navigation.dart';
 import 'package:musiclingo/widgets/container_background.dart';
 import 'package:musiclingo/widgets/home/recommended_album.dart';
 import 'package:musiclingo/widgets/home/recommended_artist.dart';
+import 'package:musiclingo/widgets/home/recommended_mix.dart';
 import 'package:musiclingo/widgets/home/recommended_songs.dart';
 import 'package:musiclingo/widgets/main_drawer.dart';
+import 'package:musiclingo/widgets/slider.dart';
+import 'package:musiclingo/widgets/slider_stack.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,6 +26,7 @@ class _HomePageState extends State<HomePage> {
       drawer: const MainDrawer(),
       key: _scaffoldKey,
       extendBodyBehindAppBar: true,
+      bottomNavigationBar: const MainBottomNavigation(),
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -64,21 +69,54 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: const ContainerBacground(
-          content: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          RecommendedSong(),
-          SizedBox(
-            height: 20,
-          ),
-          RecommendedArtist(),
-          SizedBox(
-            height: 20,
-          ),
-          RecommendedAlbum(),
-        ],
-      )),
+        content: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            RecommendedSong(),
+            SizedBox(
+              height: 20,
+            ),
+            RecommendedArtist(),
+            SizedBox(
+              height: 20,
+            ),
+            RecommendedAlbum(),
+            SizedBox(
+              height: 20,
+            ),
+            CustomSlider(
+              sliderItems: [
+                SliderStack(
+                  artistName: 'Billie Eilish',
+                  details:
+                      'The origin of lorem ipsum dates back to the 1st century BC when the Roman orator Cicero wrote a philosophical treatise called "De Finibus Bonorum et Malorum" (On the Ends of Good and Evil). A passage ',
+                  follow: '',
+                  listenNow: '',
+                ),
+                SliderStack(
+                  artistName: 'Locko',
+                  details:
+                      'The origin of lorem ipsum dates back to the 1st century BC when the Roman orator Cicero wrote a philosophical treatise called "De Finibus Bonorum et Malorum" (On the Ends of Good and Evil). A passage ',
+                  follow: '',
+                  listenNow: '',
+                ),
+                SliderStack(
+                  artistName: 'Eminem',
+                  details:
+                      'The origin of lorem ipsum dates back to the 1st century BC when the Roman orator Cicero wrote a philosophical treatise called "De Finibus Bonorum et Malorum" (On the Ends of Good and Evil). A passage ',
+                  follow: '',
+                  listenNow: '',
+                )
+              ],
+            ),
+            // SizedBox(
+            //   height: 20,
+            // ),
+            RecommendedMix(),
+          ],
+        ),
+      ),
     );
   }
 }

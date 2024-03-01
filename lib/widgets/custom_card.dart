@@ -15,7 +15,7 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 120,
-      height: 160,
+      // height: 160,
       margin: const EdgeInsets.only(right: 10),
       decoration: const BoxDecoration(),
       child: Column(
@@ -28,11 +28,16 @@ class CustomCard extends StatelessWidget {
             height: 120,
             fit: BoxFit.cover,
           ),
+          const SizedBox(
+            height: 5,
+          ),
           Text(
             songTitle,
             textAlign: TextAlign.start,
             style: const TextStyle(
                 color: Colors.white, fontWeight: FontWeight.bold),
+            maxLines: 1, // Set the maximum number of lines
+            overflow: TextOverflow.ellipsis,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -44,6 +49,8 @@ class CustomCard extends StatelessWidget {
                     color: Colors.grey,
                     fontWeight: FontWeight.w100,
                     fontSize: 14),
+                maxLines: 1, // Set the maximum number of lines
+                overflow: TextOverflow.ellipsis,
               ),
               if (album)
                 Image.asset(

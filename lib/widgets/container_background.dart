@@ -9,7 +9,7 @@ class ContainerBacground extends StatelessWidget {
     return Container(
       height: double.infinity,
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
+      padding: const EdgeInsets.only(left: 18, right: 18, top: 16, bottom: 0),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -20,7 +20,10 @@ class ContainerBacground extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
       ),
-      child: SafeArea(child: content),
+      child: SafeArea(
+          child: SingleChildScrollView(
+        child: content,
+      )),
     );
   }
 }
